@@ -109,9 +109,9 @@ public:
             {
                 temp[i]=_data[i];
             }
+            delete _data;
+            _data=temp;
         }
-        delete _data;
-        _data=temp;
         
     }
     void clear(){
