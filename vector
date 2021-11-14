@@ -84,14 +84,14 @@ public:
     }
     void resize(int n){
         T*temp=new T[n];
-        for(int i=0; i<n; i++)
+        for(int i=0; i<min(n,_size); i++)
         {
             temp[i]=_data[i];
         }
         delete _data;
         _data=temp;
         _capacity=n;
-        _size=n;
+        _size=min(n,_size);
         if(n==0)
         {
             _capacity=1;
