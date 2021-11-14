@@ -83,26 +83,18 @@ public:
         return _capacity;
     }
     void resize(int n){
-        T*temp=new T[n];
+        _capacity=max(_capacity,n);
+        T* temp=new T[_capacity];
         for(int i=0; i<min(n,_size); i++)
         {
             temp[i]=_data[i];
         }
         delete _data;
         _data=temp;
-        _capacity=n;
-        _size=min(n,_size);
-        if(n==0)
-        {
-            _capacity=1;
-        }
+        _size=n;
     }
     void reserve(int n){
-        if(_capacity>=n)
-        {
-            _capacity=n;
-        }
-        else
+        if(_capacity<n)
         {
             T* temp=new T[n];
             for(int i=0;i<_size;i++)
@@ -111,8 +103,8 @@ public:
             }
             delete _data;
             _data=temp;
-            _capacity=n;
         }
+        _capacity=n;
         
     }
     void clear(){
