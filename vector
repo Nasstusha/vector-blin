@@ -66,6 +66,7 @@ public:
         ++_size;
     }
     void pop_back(){
+        --_size;
         if(_capacity>=4*_size)
         {
             _capacity=_capacity/4;
@@ -77,7 +78,6 @@ public:
             delete _data;
             _data=temp;
         }
-        --_size;
     }
     int capacity(){
         return _capacity;
