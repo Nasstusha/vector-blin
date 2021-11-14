@@ -111,6 +111,7 @@ public:
             }
             delete _data;
             _data=temp;
+            _capacity=n;
         }
         
     }
